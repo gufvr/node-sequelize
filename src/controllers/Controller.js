@@ -12,7 +12,7 @@ class Controller {
     }
   }
 
-  async updtate(req, res) {
+  async update(req, res) {
     const { id } = req.params;
     const updatedData = req.body;
 
