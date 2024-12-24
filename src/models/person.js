@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Person.hasMany(models.Record, {
         foreignKey: 'studant_id',
+        as: 'classesEnrolled',
       });
     }
   }

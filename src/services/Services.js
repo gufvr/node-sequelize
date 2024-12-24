@@ -9,13 +9,13 @@ class Services {
     return dataSource[this.model].findAll();
   }
 
-  // async getRecordById(id) {
-  //   return dataSource[this.model].findByPk(id)
-  // }
+  async getRecordById(id) {
+    return dataSource[this.model].findByPk(id);
+  }
 
-  // async postRecord(recordData) {
-  //   return dataSource[this.model].create(recordData)
-  // }
+  async createRecord(recordData) {
+    return dataSource[this.model].create(recordData);
+  }
 
   async updateRecord(updatedData, id) {
     const listOfUpdatedRecords = dataSource[this.model].update(updatedData, {
@@ -29,9 +29,9 @@ class Services {
     return true;
   }
 
-  // async deleteRecord(id) {
-  //   return dataSource[this.model].destroy({ where: { id: id } });
-  // }
+  async deleteRecord(id) {
+    return dataSource[this.model].destroy({ where: { id: id } });
+  }
 }
 
 module.exports = Services;
