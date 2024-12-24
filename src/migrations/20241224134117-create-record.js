@@ -7,22 +7,32 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+      },
+      studant_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'people', key: 'id' },
+      },
+      course_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'courses', key: 'id' },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('records');
-  }
+  },
 };

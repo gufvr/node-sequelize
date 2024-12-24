@@ -7,28 +7,38 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       start_date: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
+      },
+      teacher_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'people', key: 'id' },
+      },
+      category_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'categories', key: 'id' },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('courses');
-  }
+  },
 };
